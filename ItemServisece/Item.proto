@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+option go_package = "genproto/item";
+
+package item;
+
+service ItemService {
+  rpc AddItem(AddItemRequest) returns (ItemResponse);
+  rpc UpdateItem(UpdateItemRequest) returns (ItemResponse);
+  rpc DeleteItem(DeleteItemRequest) returns (DeleteItemResponse);
+  rpc ListItems(ListItemsRequest) returns (ListItemsResponse);
+  rpc GetItem(GetItemRequest) returns (ItemResponse);
+  rpc SearchItems(SearchItemsRequest) returns (ListItemsResponse);
+}
+
+message AddItemRequest {
+  string name = 1;
+  string description = 2;
+  string category_id = 3;
+  string condition = 4;
+  repeated string swap_preference = 5;
+  repeated string images = 6;
+}
+
+message UpdateItemRequest {
+  string item_id = 1;
+  string name = 2;
+  string description = 3;
+  string category_id = 4;
+  string condition = 5;
+  repeated string swap_preference = 6;
+  repeated string images = 7;
+}
+
+message DeleteItemRequest {
+  string item_id = 1;
+}
+
+message ListItemsRequest {
+  int32 page = 1;
+  int32 limit = 2;
+}
+
+message GetItemRequest {
+  string item_id = 1;
+}
+
+message SearchItemsRequest {
+  string query = 1;
+  string category = 2;
+  string condition = 3;
+  int32 page = 4;
+  int32 limit = 5;
+}
+
+message ItemResponse {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  string category_id = 4;
+  string condition = 5;
+  repeated string swap_preference = 6;
+  repeated string images = 7;
+  string owner_id = 8;
+  string status = 9;
+  string created_at = 10;
+  string updated_at = 11;
+}
+
+message ListItemsResponse {
+  repeated ItemResponse items = 1;
+  int32 total = 2;
+  int32 page = 3;
+  int32 limit = 4;
+}
+
+message DeleteItemResponse {
+  string message = 1;
+}

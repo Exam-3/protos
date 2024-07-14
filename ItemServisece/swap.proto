@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+option go_package = "genproto/item";
+
+package item;
+
+service SwapService {
+  rpc SendSwapRequest(SendSwapRequestRequest) returns (SwapResponse);
+  rpc AcceptSwapRequest(AcceptSwapRequestRequest) returns (SwapResponse);
+  rpc RejectSwapRequest(RejectSwapRequestRequest) returns (SwapResponse);
+  rpc ListSwapRequests(ListSwapRequestsRequest) returns (ListSwapRequestsResponse);
+}
+
+message SendSwapRequestRequest {
+  string offered_item_id = 1;
+  string requested_item_id = 2;
+  string message = 3;
+}
+
+message AcceptSwapRequestRequest {
+  string swap_id = 1;
+}
+
+message RejectSwapRequestRequest {
+  string swap_id = 1;
+  string reason = 2;
+}
+
+message ListSwapRequestsRequest {
+  string status = 1;
+  int32 page = 2;
+  int32 limit = 3;
+}
+
+message SwapResponse {
+  string id = 1;
+  string offered_item_id = 2;
+  string requested_item_id = 3;
+  string requester_id = 4;
+  string owner_id = 5;
+  string status = 6;
+  string message = 7;
+  string reason = 8;
+  string created_at = 9;
+  string updated_at = 10;
+}
+
+message ListSwapRequestsResponse {
+  repeated SwapResponse swaps = 1;
+  int32 total = 2;
+  int32 page = 3;
+  int32 limit = 4;
+}
