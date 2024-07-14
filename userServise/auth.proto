@@ -8,6 +8,8 @@ service Authentication {
     rpc Register (UserDetails) returns (ID);
     rpc Login (LoginRequest) returns (LoginResponse);
     rpc CheckRefreshToken (CheckRefreshTokenRequest) returns (CheckRefreshTokenResponse);
+    rpc Logout(LogoutRequest) returns (LogoutResponse);
+    rpc ResetPassword(ResetPasswordRequest) returns (ResetPasswordResponse);
 }
 
 message UserDetails {
@@ -57,3 +59,18 @@ message CheckRefreshTokenResponse{
     string accestoken=2;
 }
 
+message LogoutRequest {
+    string user_id = 1;
+}
+
+message LogoutResponse {
+    string message = 1;
+}
+
+message ResetPasswordRequest {
+    string email = 1;
+}
+
+message ResetPasswordResponse {
+    string message = 1;
+}
