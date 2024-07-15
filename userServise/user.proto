@@ -114,3 +114,7 @@ message EcoPointTransaction {
     string reason = 4;
     string timestamp = 5;
 }
+
+message ValidateUserId{
+    string id = 1;
+}
