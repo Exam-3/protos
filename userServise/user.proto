@@ -12,6 +12,7 @@ service UserService {
     rpc GetEcoPoints (GetEcoPointsRequest) returns (GetEcoPointsResponse);
     rpc AddEcoPoints (AddEcoPointsRequest) returns (AddEcoPointsResponse);
     rpc GetEcoPointsHistory (GetEcoPointsHistoryRequest) returns (GetEcoPointsHistoryResponse);
+    rpc ValidateUserId(ValidateUserIdRequest) returns (ValidateUserIdResponse);
 }
 
 message UserID {
@@ -115,6 +116,11 @@ message EcoPointTransaction {
     string timestamp = 5;
 }
 
-message ValidateUserId{
+message ValidateUserIdRequest {
     string id = 1;
 }
+
+message ValidateUserIdResponse {
+    bool status = 1;
+}
+
