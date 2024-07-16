@@ -293,7 +293,8 @@ message CreateEcoChallengeResponse {
 }
 
 message ParticipateEcoChallengeRequest {
-    string challenge_id = 1;
+  string user_id = 1;
+  string challenge_id = 2;
 }
 
 message ParticipateEcoChallengeResponse {
