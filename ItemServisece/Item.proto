@@ -57,7 +57,7 @@ message AddItemRequest {
   string description = 3;
   string category_id = 4;
   string condition = 5;
-  repeated string swap_preference = 6;
+  string swap_preference = 6;
 }
 
 message ItemResponse {
@@ -67,7 +67,7 @@ message ItemResponse {
   string description = 4;
   string category_id = 5;
   string condition = 6;
-  repeated string swap_preference = 7;
+  string swap_preference = 7;
   string status = 8;
   string created_at = 9;
   string updated_at = 10;
@@ -79,7 +79,7 @@ message UpdateItemRequest {
   string description = 3;
   string category_id = 4;
   string condition = 5;
-  repeated string swap_preference = 6;
+  string swap_preference = 6;
   
 }
 
