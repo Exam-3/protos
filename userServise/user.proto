@@ -31,8 +31,9 @@ message GetUserProfileResponse {
 
 message UpdateUserProfileRequest {
     string user_id = 1;
-    string full_name = 2;
-    string bio = 3;
+    string username = 2;
+    string full_name = 3;
+    string bio = 4;
 }
 
 message UpdateProfileResponse {
@@ -53,8 +54,11 @@ message DeleteUserResponse {
 }
 
 message GetUsersRequest {
-    int32 page = 1;
-    int32 limit = 2;
+    string username = 1;
+    string full_name = 2;
+    int32 eco_points = 3;
+    int32 page = 4;
+    int32 limit = 5;
 }
 message User {
     string id = 1;
@@ -97,8 +101,11 @@ message AddEcoPointsResponse {
 
 message GetEcoPointsHistoryRequest {
     string user_id = 1;
-    int32 page = 2;
-    int32 limit = 3;
+    int32 points = 2;
+    string type = 3;
+    string reason = 4;
+    int32 page = 5;
+    int32 limit = 6;
 }
 
 message GetEcoPointsHistoryResponse {
